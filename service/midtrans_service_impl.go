@@ -30,7 +30,7 @@ func (service *MidtransServiceImpl) Create(c *gin.Context, request web.MidtransR
 
 	// request midtrans
 	var snapClient = snap.Client{}
-	snapClient.New(os.Getenv("MIDTRANS_SERVER_KEY"), midtrans.Sandbox)
+	snapClient.New(os.Getenv("MIDTRANS_SERVER_KEY"), midtrans.Production)
 
 	// user id
 	user_id := strconv.Itoa(request.UserId)
