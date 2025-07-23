@@ -37,8 +37,8 @@ func (service *MidtransServiceImpl) Create(c *gin.Context, request web.MidtransR
 
 	// customer
 	custAddress := &midtrans.CustomerAddress{
-		FName:       "John",
-		LName:       "Doe",
+		FName:       "Photobox",
+		LName:       "",
 		Phone:       "081234567890",
 		Address:     "Baker Street 97th",
 		City:        "Jakarta",
@@ -55,9 +55,9 @@ func (service *MidtransServiceImpl) Create(c *gin.Context, request web.MidtransR
 			Secure: true,
 		},
 		CustomerDetail: &midtrans.CustomerDetails{
-			FName:    "John",
-			LName:    "Doe",
-			Email:    "john@doe.com",
+			FName:    "Photobox",
+			LName:    "",
+			Email:    "photobox@xxx.com",
 			Phone:    "081234567890",
 			BillAddr: custAddress,
 			ShipAddr: custAddress,

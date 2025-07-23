@@ -8,6 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
+	"github.com/gin-contrib/cors"
 )
 
 func init() {
@@ -21,6 +22,15 @@ func main() {
 	midtransController := controller.NewMidtransControllerImpl(midtransService)
 
 	r := gin.Default()
+
+	// add CORS
+	corsMiddleware := cors.New(cors.Config{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders: []string{"Origin", "Content-Type", "Authorization"},
+	})
+	r.Use(corsMiddleware)
+
 	r.Use(middleware.ErrorHandle())
 	midtrans := r.Group("/midtrans")
 	{
